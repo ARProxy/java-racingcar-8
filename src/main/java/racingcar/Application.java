@@ -1,8 +1,9 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.core.Race;
+import racingcar.core.RaceFacade;
 import racingcar.dto.CarsAndRacingCount;
+import racingcar.service.RaceService;
 
 public class Application {
     public static void main(String[] args) {
@@ -12,10 +13,8 @@ public class Application {
         System.out.println("시도할 횟수는 몇 회인가요?");
         int racingCount = Integer.parseInt(Console.readLine());
 
-        var race = new Race();
-        var result = race.racingCar(
-                new CarsAndRacingCount(carNames, racingCount)
-        );
+        var raceFacade = RaceFacade.getInstance();
+        var result = raceFacade.racingCar(new CarsAndRacingCount(carNames, racingCount));
 
     }
 }
