@@ -9,21 +9,21 @@ import racingcar.dto.CarsAndRacingCount;
 class RaceServiceTest {
 
     private RaceService raceService;
-    private CarsAndRacingCount carsAndRacingCount;
 
     @BeforeEach
     void setUp() {
         raceService = new RaceService();
-        carsAndRacingCount = new CarsAndRacingCount(
-                "pobi,woni,jun",
-                5
-        );
     }
 
     @Test
     void 자동차_이름은_쉼표를_기준으로_구분한다() {
         //when
-        String[] result = raceService.carNameSplit(carsAndRacingCount);
+        String[] result = raceService.carNameSplit(
+                new CarsAndRacingCount(
+                        "pobi,woni,jun",
+                        5
+                )
+        );
 
         //then
         assertAll(
@@ -31,5 +31,15 @@ class RaceServiceTest {
                 () -> assertEquals("woni", result[1]),
                 () -> assertEquals("jun", result[2])
         );
+    }
+
+    @Test
+    void 자동차_이름은_5자_이하만_가능하다() {
+        //when & then
+        assertThrows(IllegalArgumentException.class,
+                () -> raceService.carNameSplit(new CarsAndRacingCount(
+                        "donghwi,song",
+                        5
+                )));
     }
 }
