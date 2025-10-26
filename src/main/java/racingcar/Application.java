@@ -15,9 +15,10 @@ public class Application {
 
             var raceFacade = RaceFacade.getInstance();
             var result = raceFacade.racingCar(new CarsAndRacingCount(carNames, racingCount));
-            System.out.println(result);
+            System.out.println("최종 우승자 : " + result);
         } catch (IllegalArgumentException e) {
             Console.close();
+            throw e;
         }
     }
 }
