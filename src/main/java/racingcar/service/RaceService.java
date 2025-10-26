@@ -2,7 +2,6 @@ package racingcar.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.Arrays;
-import java.util.OptionalInt;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import racingcar.dto.CarsAndRacingCount;
@@ -12,7 +11,14 @@ public class RaceService {
     public String[] carNameSplit(CarsAndRacingCount carsAndRacingCount) {
         var carNames = carsAndRacingCount.carNames().split(",");
         checkCarNameLength(carNames);
+        checkCarsCount(carNames);
         return carNames;
+    }
+
+    private void checkCarsCount(String[] carNames) {
+        if (carNames.length < 2) {
+            throw new IllegalArgumentException();
+        }
     }
 
     private void checkCarNameLength(String[] carNames) {
@@ -56,7 +62,7 @@ public class RaceService {
     }
 
     public String raceResult(String[] cars, int[] carsStatus) {
-       int maxValue = Arrays.stream(carsStatus).max().orElse(0);
+        int maxValue = Arrays.stream(carsStatus).max().orElse(0);
 
         return IntStream.range(0, carsStatus.length)
                 .filter(i -> carsStatus[i] == maxValue)
