@@ -3,7 +3,6 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.core.RaceFacade;
 import racingcar.dto.CarsAndRacingCount;
-import racingcar.service.RaceService;
 
 public class Application {
     public static void main(String[] args) {
@@ -15,6 +14,7 @@ public class Application {
 
         var raceFacade = RaceFacade.getInstance();
         var result = raceFacade.racingCar(new CarsAndRacingCount(carNames, racingCount));
+        System.out.println(result);
 
     }
 }

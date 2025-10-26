@@ -22,7 +22,6 @@ public class RaceFacade {
     public String racingCar(CarsAndRacingCount carsAndRacingCount) {
         var cars = raceService.carNameSplit(carsAndRacingCount);
         var carsStatus = raceService.carsStatus(cars, carsAndRacingCount);
-        System.out.println(Arrays.toString(carsStatus));
-        return null;
+        return raceService.raceResult(cars, carsStatus);
     }
 }
