@@ -1,6 +1,5 @@
 package racingcar.core;
 
-import java.util.Arrays;
 import racingcar.dto.CarsAndRacingCount;
 import racingcar.service.RaceService;
 
