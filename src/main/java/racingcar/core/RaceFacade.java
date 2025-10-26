@@ -1,5 +1,6 @@
 package racingcar.core;
 
+import java.util.Arrays;
 import racingcar.dto.CarsAndRacingCount;
 import racingcar.service.RaceService;
 
@@ -20,7 +21,8 @@ public class RaceFacade {
 
     public String racingCar(CarsAndRacingCount carsAndRacingCount) {
         var cars = raceService.carNameSplit(carsAndRacingCount);
-
+        var carsStatus = raceService.carsStatus(cars, carsAndRacingCount);
+        System.out.println(Arrays.toString(carsStatus));
         return null;
     }
 }

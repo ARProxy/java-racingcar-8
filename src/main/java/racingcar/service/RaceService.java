@@ -19,8 +19,21 @@ public class RaceService {
         }
     }
 
-    public boolean movingCase() {
+    private boolean movingCase() {
         int randomValue = Randoms.pickNumberInRange(0, 9);
         return randomValue >= 4;
+    }
+
+    public int[] carsStatus(String[] cars, CarsAndRacingCount carsAndRacingCount) {
+        int count = carsAndRacingCount.racingCount();
+        int[] carsStatus = new int[cars.length];
+        for (int i = 0; i < count; i++) {
+            for(int j = 0; j < cars.length; j++) {
+                if(movingCase()) {
+                    carsStatus[j] += 1;
+                }
+            }
+        }
+        return carsStatus;
     }
 }
