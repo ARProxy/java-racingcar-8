@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.dto.CarsAndRacingCount;
 
 public class RaceService {
@@ -16,5 +17,10 @@ public class RaceService {
                 throw new IllegalArgumentException();
             }
         }
+    }
+
+    public boolean movingCase() {
+        int randomValue = Randoms.pickNumberInRange(0, 9);
+        return randomValue >= 4;
     }
 }

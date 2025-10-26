@@ -2,6 +2,7 @@ package racingcar.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.dto.CarsAndRacingCount;
